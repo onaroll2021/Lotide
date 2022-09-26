@@ -10,12 +10,12 @@ const takeUntil = function(array, callback) {
   // ...
   let resultTest = [];
   for (const arr of array) {
-    // if (!callback(arr)) {
-    //   resultTest.push(arr)
-    // } else {
-    //   break;
-    // }
-    !callback(arr) && resultTest.push(arr) 
+    if (!callback(arr)) {
+      resultTest.push(arr)
+    } else {
+      break;
+    }
+    callback(arr) && resultTest.push(arr) 
   }
   return resultTest;
 };
